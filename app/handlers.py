@@ -9,7 +9,7 @@ async def get_index(request):
     return aiohttp_jinja2.render_template("index.html", request, {'events': await get_wizzarding_events(request)})
 
 
-async def get_info(request):
+async def get_info(_):
     return json_response({"name": 'wizzarding', "version": VERSION})
 
 
