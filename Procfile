@@ -1,0 +1,1 @@
+web: gunicorn "app.app:create_app()" --worker-class aiohttp.worker.GunicornWebWorker --log-file -

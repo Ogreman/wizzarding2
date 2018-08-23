@@ -1,0 +1,7 @@
+{
+  "name": "Wizzarding Promotions",
+  "description": "Bringing psychedelic music to Bristol.",
+  "image": "heroku/python",
+  "repository": "https://github.com/ogreman/wizzarding",
+  "keywords": ["python", "aiohttp"],
+}

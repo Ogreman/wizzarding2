@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}{{ super() }}{% endblock %}
+{% block content %}
+{% for event in events %}
+    <a href="https://fb.com/events/{{ event.id }}" target="_blank">
+        <img src="{{ event.cover.source }}">
+        {{ event.name }}
+    </a>
+{% endfor %}
+{% endblock %}
