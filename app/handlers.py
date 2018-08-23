@@ -17,7 +17,7 @@ async def get_wizzarding_events(request):
     events_url = 'https://graph.facebook.com/v3.1/wizzarding/events'
     params = {
         'access_token': request.app["FB_ACCESS_TOKEN"],
-        'fields': 'cover,description,start_time,place,name',
+        'fields': 'cover,description,start_time,place,name,ticket_uri',
         'limit': 3,
         'time_filter': 'upcoming',
     }

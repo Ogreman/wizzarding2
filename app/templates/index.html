@@ -1,10 +1,185 @@
-{% extends "base.html" %}
-{% block title %}{{ super() }}{% endblock %}
-{% block content %}
-{% for event in events %}
-    <a href="https://fb.com/events/{{ event.id }}" target="_blank">
-        <img src="{{ event.cover.source }}">
-        {{ event.name }}
-    </a>
-{% endfor %}
-{% endblock %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome - Wizzarding Promotions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ static('CSS/style.css') }}" />
+
+    <script src="{{ static('JS/jquery.js') }}"></script>
+    <script src="{{ static('JS/script.js') }}"></script>
+</head>
+
+<body>
+    <audio id="evil-laugh">
+        <source src="{{ static('sounds/evil-laugh.mp3') }}">
+    </audio>
+
+    <img id="wizard-icon-welcome" src="{{ static('img/wizard-icon-welcome.svg') }}" />
+
+    <img id="wizard-icon" src="{{ static('img/wizard-icon.svg') }}" />
+
+    <div class="welcome">
+        <h2 id="welcome-h2">Welcome to</h2>
+        <h1 id="welcome-h1">WIZZARDING<br>PROMOTIONS</h1>
+        <h2 id="welcome-enter"><a>click here to enter ...</a></h2>
+    </div>
+
+    <div class="container">
+        <div id="menu">
+            <h1 id="menu-title">WIZZARDING<br>PROMOTIONS</h1>
+            <ul>
+                <li id="link-home"><a>Home</a></li>
+                <li id="link-shows"><a>Shows / Gigs</a></li>
+                <li id="link-bands"><a>Bands</a></li>
+                <li id="link-venues"><a>Venues</a></li>
+                <li id="link-posters"><a>Posters</a></li>
+                <hr>
+                <li id="link-about"><a>About</a></li>
+                <li id="link-contact"><a>Contact</a></li>
+            </ul>
+            <div id="links">
+                <a href="https://www.facebook.com/wizzarding/"><i class="fab fa-facebook-f fa-2x"></i></a>
+                <a href="https://twitter.com/wizzardingpromo"><i class="fab fa-twitter fa-2x"></i></a>
+                <a href="https://www.instagram.com/wizprocom/?hl=en"><i class="fab fa-instagram fa-2x"></i></a>
+            </div>
+        </div>
+
+        <div class="overlays">
+            <div class="about">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. In accusamus sequi possimus ad mollitia fuga
+                    iure veniam maiores quibusdam sit labore assumenda nihil, id, ipsum laboriosam suscipit dolorem illo
+                    adipisci. Aspernatur asperiores non aliquam fugiat delectus quibusdam totam. Ut dolore eius inventore
+                    asperiores nam. Dicta, unde aliquid ipsum ea distinctio ipsam rem nobis error?</p>
+                <div class="fb-page" data-href="https://www.facebook.com/wizzarding/" data-small-header="true" data-adapt-container-width="false"
+                    data-hide-cover="true" data-show-facepile="false">
+                    <blockquote cite="https://www.facebook.com/wizzarding/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/wizzarding/">Wizzarding
+                            Promotions
+                        </a></blockquote>
+                </div>
+            </div>
+
+            <div class="contact">
+                <p id=contact-email><i class="fa fa-envelope"></i>&ensp;ogre@wizzarding.com</p>
+            </div>
+
+            {% for event in events %}
+                <div id="show-{{ loop.index }}-info">
+                    <p>{{ event.start_time|datetime('%a, %d %B %Y') }} - {{ event.place.name }}, Bristol<br><br>
+                       {{ event.description }}<br><br>
+                       Tickets: <a href="{{ event.ticket_uri }}" target="_blank">Headfirst Bristol</a>
+                    </p>
+                </div>
+            {% endfor %}
+
+        </div>
+
+        <div id="content">
+            <div class="home">
+                <div id="shows">
+                    <h1>Upcoming Shows</h1>
+                    {% for event in events %}
+                        <img src="{{ event.cover.source }}" id="show-{{ loop.index }}" class="active-show">
+                    {% endfor %}
+                </div>
+
+                <div id="podcast">
+                    <h1>Recent Podcast</h1>
+                    <iframe width="190" height="190" src="https://www.mixcloud.com/widget/iframe/?feed=%2Friffwizzards%2Fthe-riffwizzards-june-2018%2F"
+                        frameborder="0"></iframe>
+                </div>
+            </div>
+
+            <div class="bands">
+                <div id="cegvera">
+                    <img src="{{ static('img/cegvera.png') }}" id="cegvera-img" class="bands-img">
+                    <div id="cegvera-links" class="bands-links">
+                        <a href="https://www.facebook.com/cegueraUK/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://cegvera.bandcamp.com/"><i class="fab fa-bandcamp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="venues">
+                <div id="oldengland">
+                    <a href="https://www.oldenglandbristol.co.uk/"><img src="{{ static('img/oldengland.png') }}" id="oldengland-img" class="venues-img"></a>
+                    <div id="oldengland-links" class="venues-links">
+                        <a href="https://www.facebook.com/TheOldE/"><i class="fab fa-facebook-f fa-2x"></i></a>
+                    </div>
+                </div>
+                <div id="croftersrights">
+                    <a href="http://croftersrights.co.uk/"><img src="{{ static('img/croftersrights.png') }}" id="croftersrights-img" class="venues-img"></a>
+                    <div id="croftersrights-links" class="venues-links">
+                        <a href="https://www.facebook.com/CroftersRights/"><i class="fab fa-facebook-f fa-2x"></i></a>
+                    </div>
+                </div>
+                <div id="gryphon">
+                    <a href="https://www.facebook.com/gryphonbristol/"><img src="{{ static('img/gryphon.png') }}" id="gryphon-img" class="venues-img"></a>
+                    <div id="gryphon-links" class="venues-links">
+                        <a href="https://www.facebook.com/gryphonbristol/?rf=487874814640584"><i class="fab fa-facebook-f fa-2x"></i></a>
+                    </div>
+                </div>
+                <div id="lanes">
+                    <a href="http://www.thelanesbristol.co.uk/"><img src="{{ static('img/lanes.png') }}" id="lanes-img" class="venues-img"></a>
+                    <div id="lanes-links" class="venues-links">
+                        <a href="https://www.facebook.com/lanes.bristol/"><i class="fab fa-facebook-f fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="posters">
+                <div id="qujaku">
+                    <img src="{{ static('posters/qujaku-small.png') }}" id="qujaku-img-small" class="posters-img-small">
+                </div>
+                <div id="vodun">
+                    <img src="{{ static('posters/vodun-small.png') }}" id="vodun-img-small" class="posters-img-small">
+                </div>
+                <div id="ecstaticvision-1">
+                    <img src="{{ static('posters/ecstaticvision-1-small.png') }}" id="ecstaticvision-1-img-small" class="posters-img-small">
+                </div>
+                <div id="ecstaticvision-2">
+                    <img src="{{ static('posters/ecstaticvision-2-small.png') }}" id="ecstaticvision-2-img-small" class="posters-img-small">
+                </div>
+                <div id="deathengine">
+                    <img src="{{ static('posters/deathengine-small.png') }}" id="deathengine-img-small" class="posters-img-small">
+                </div>
+                <div id="acidcannibals">
+                    <img src="{{ static('posters/acidcannibals-small.png') }}" id="acidcannibals-img-small" class="posters-img-small">
+                </div>
+            </div>
+
+            <div class="posters-lightbox">
+                <div id="qujaku-large">
+                    <img src="{{ static('posters/qujaku-large.jpg') }}" id="qujaku-img-large" class="posters-img-large">
+                </div>
+                <div id="vodun-large">
+                    <img src="{{ static('posters/vodun-large.jpg') }}" id="vodun-img-large" class="posters-img-large">
+                </div>
+                <div id="ecstaticvision-1-large">
+                    <img src="{{ static('posters/ecstaticvision-1-large.jpg') }}" id="ecstaticvision-1-img-large" class="posters-img-large">
+                </div>
+                <div id="ecstaticvision-2-large">
+                    <img src="{{ static('posters/ecstaticvision-2-large.jpg') }}" id="ecstaticvision-2-img-large" class="posters-img-large">
+                </div>
+                <div id="deathengine-large">
+                    <img src="{{ static('posters/deathengine-large.jpg') }}" id="deathengine-img-large" class="posters-img-large">
+                </div>
+                <div id="acidcannibals-large">
+                    <img src="{{ static('posters/acidcannibals-large.jpg') }}" id="acidcannibals-img-large" class="posters-img-large">
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    </div>
+
+</body>
+
+</html>

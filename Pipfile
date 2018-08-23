@@ -9,6 +9,7 @@ aiohttp = "*"
 aiohttp-utils = "*"
 envparse = "*"
 invoke = "*"
+"iso8601" = "*"
 
 [dev-packages]
 aiohttp-devtools = "*"
@@ -18,4 +19,4 @@ pytest-aiohttp = "*"
 pytest-cov = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.6"

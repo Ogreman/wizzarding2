@@ -1,4 +1,5 @@
 import aiohttp_jinja2
+import iso8601
 import jinja2
 from aiohttp import ClientSession, ClientTimeout
 from aiohttp.web import Application
@@ -14,6 +15,10 @@ async def on_startup(app):
 
 async def on_cleanup(app):
     await app.http_session_pool.close()
+
+
+def datetimeformat(value, format='%H:%M / %d-%m-%Y'):
+    return iso8601.parse_date(value).strftime(format)
 
 
 def create_app(config_name=None) -> Application:
@@ -40,6 +45,7 @@ def create_app(config_name=None) -> Application:
         loader=jinja2.PackageLoader("app", "templates"),
         context_processors=[aiohttp_jinja2.request_processor],
         extensions=['jinja2.ext.i18n'],
+        filters={'datetime': datetimeformat},
     )
     # Required to add the default gettext and ngettext functions for rendering
     env.install_null_translations()
