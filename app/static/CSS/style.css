@@ -1,444 +1,896 @@
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background-image: linear-gradient(#000000, #383838);
-  background-repeat: none;
-  height: 100vh;
-  max-height: 100%;
-  width: 100vw;
-  max-width: 100%;
-  overflow: hidden;
-  color: white;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
-    sans-serif;
-  font-size: 15px;
-  box-sizing: border-box;
-}
-
-@font-face {
-  font-family: wolf bane;
-  src: url(../fonts/wolf.TTF);
-}
-
-a {
-  text-decoration: none;
-}
-
-a:visited {
-  text-decoration: none;
-}
-
-#wizard-icon {
-  position: absolute;
-  z-index: -1;
-  height: 100vh;
-}
-
-/*----------Animations----------*/
-
-.fade-in {
-}
-
-.fade-out {
-}
-
-.welcome-title-translate {
-  top: 0px;
-  left: 0px;
-  margin: 0px;
-}
-
-#show-1.active-show {
-  transition: all 0.3s ease;
-  height: 200px;
-  width: 200px;
-  border-radius: 100px;
-  z-index: 2;
-}
-
-#show-2.active-show {
-  transition: all 0.3s ease;
-  height: 200px;
-  width: 200px;
-  border-radius: 100px;
-  z-index: 2;
-}
-
-/*------------Welcome----------*/
-
-.welcome {
-  display: inline-block;
-  vertical-align: middle;
-  height: 500px;
-  width: 500px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -250px -250px;
-}
-
-#welcome-h1 {
-  font-family: wolf bane, Gloucester MT Extra Condensed, serif;
-  letter-spacing: 2px;
-  text-align: center;
-  text-shadow: 0px -8px 4px #000000;
-  font-size: 70px;
-}
-
-#welcome-h2 {
-  text-align: center;
-  color: #6d6d6d;
-  font-size: 30px;
-}
-
-#welcome-enter {
-  text-align: center;
-  color: #6d6d6d;
-  font-size: 30px;
-}
-
-#welcome-enter a {
-  cursor: pointer;
-}
-
-/*------------Container----------*/
-.container {
-  display: grid;
-  grid-template-columns: 200px 7fr;
-}
-
-/*------------Menu----------*/
-
-#menu {
-  background-color: rgba(237, 237, 237, 0.1);
-  width: auto;
-  height: 95vh;
-  max-height: 100%;
-  text-align: center;
-  padding: 10px;
-  border-radius: 20px;
-}
-
-#wizard-icon-welcome {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: -1;
-  height: 100%;
-}
-
-#wizard-icon-2 {
-  position: absolute;
-  top: 50px;
-  left: 10px;
-  z-index: -1;
-}
-
-#menu-title {
-  font-family: wolf bane, Gloucester MT Extra Condensed, serif;
-  letter-spacing: 2px;
-  text-shadow: 0px -8px 4px #000000;
-  font-size: 30px;
-  margin-top: 0px;
-  line-height: 50px;
-  cursor: pointer;
-}
-
-#menu ul {
-  margin: 0px;
-  padding: 0px;
-  line-height: 40px;
-  font-size: 18px;
-}
-
-#menu li {
-  list-style: none;
-  margin: 0px;
-}
-
-#menu a {
-  cursor: pointer;
-  color: #6d6d6d;
-}
-
-#menu a:hover {
-  transition: all 0.2s ease-out;
-  color: white;
-}
-
-#menu hr {
-  border-color: grey;
-}
-
-#links {
-  position: absolute;
-  bottom: 20px;
-  left: 35px;
-}
-
-#links i {
-  margin: 8px;
-  cursor: pointer;
-  color: white;
-}
-
-#links i:hover {
-  transition: all 0.2s ease-out;
-  color: #6d6d6d;
-}
-
-/*----------Overlays---------*/
-.overlays {
-  position: absolute;
-  z-index: 5;
-  left: 200px;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-/*----------Home---------*/
-
-#home {
-  height: 100vh;
-}
-
-#shows {
-  position: relative;
-  text-align: center;
-  box-sizing: border-box;
-  padding-top: 50px;
-  height: 310px;
-}
-
-#shows h1 {
-  font-family: wolf bane, Gloucester MT Extra Condensed, serif;
-  margin: 0px 0px 10px 0px;
-  font-size: 30px;
-}
-
-#show-1 {
-  height: 150px;
-  width: 150px;
-  border-radius: 75px;
-  z-index: 1;
-  display: inline-block;
-  position: relative;
-  left: 20px;
-  cursor: pointer;
-}
-
-#show-1-info {
-  position: absolute;
-  top: 150px;
-  margin-left: 20px;
-  margin-right: 250px;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-#show-1-info a {
-  color: white;
-}
-
-#show-2 {
-  height: 150px;
-  width: 150px;
-  border-radius: 75px;
-  z-index: 1;
-  display: inline-block;
-  position: relative;
-  right: 20px;
-  cursor: pointer;
-}
-
-#show-2-info {
-  position: absolute;
-  top: 150px;
-  margin-left: 20px;
-  margin-right: 250px;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-#show-2-info a {
-  color: white;
-}
-
-#podcast {
-  text-align: center;
-  padding-top: 50px;
-}
-
-#podcast h1 {
-  font-family: wolf bane, Gloucester MT Extra Condensed, serif;
-  font-size: 30px;
-  margin: 0px 0px 10px 0px;
-}
-
-#podcast-mixcloud {
-  background-color: white;
-  height: 200px;
-  width: 200px;
-  border-radius: 100px;
-  z-index: 2;
-  display: inline-block;
-}
-
-/*----------Bands---------*/
-.bands {
-  text-align: center;
-  margin-top: 100px;
-}
-
-#cegvera {
-  position: relative;
-}
-
-.bands-img {
-  height: 250px;
-  width: 250px;
-}
-
-.bands-links i {
-  cursor: pointer;
-  color: white;
-  margin: 5px;
-  position: relative;
-  bottom: 60px;
-}
-
-/*----------Venues---------*/
-
-.venues {
-  position: absolute;
-  padding-top: 50px;
-  text-align: center;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  height: 100%;
-  overflow: auto;
-}
-
-.venues-img {
-  height: 200px;
-  width: 200px;
-  margin: 10px;
-}
-
-.venues-links i {
-  cursor: pointer;
-  color: white;
-  margin: 5px;
-  position: relative;
-  bottom: 60px;
-}
-
-.venues::-webkit-scrollbar {
-  width: 12px;
-}
-
-.venues::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-}
-
-.venues::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.5);
-}
-
-/*----------Posters---------*/
-
-.posters {
-  text-align: center;
-  margin-top: 20px;
-  height: 95vh;
-  display: flex;
-  flex-direction: column;
-  flex-flow: wrap;
-  justify-content: center;
-  overflow: auto;
-}
-
-.posters-img-small {
-  height: 180px;
-  width: 180px;
-  margin: 10px;
-  cursor: pointer;
-}
-
-.posters::-webkit-scrollbar {
-  width: 12px;
-}
-
-.posters::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-}
-
-.posters::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.5);
-}
-
-/*----------Posters-Lightbox---------*/
-.posters-lightbox {
-  height: 90vh;
-  overflow: auto;
-  padding: 20px;
-  display: inline-block;
-}
-
-.posters-img-large {
-  width: 100%;
-  display: inline-block;
-}
-
-.posters-lightbox::-webkit-scrollbar {
-  width: 12px;
-}
-
-.posters-lightbox::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-}
-
-.posters-lightbox::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.5);
-}
-/*----------About---------*/
-.about {
-  position: absolute;
-  top: 20%;
-  margin-left: 20px;
-  margin-right: 250px;
-  z-index: 5;
-}
-
-.fb-page {
-  position: absolute;
-  margin-left: 50px;
-}
-
-/*----------Contact---------*/
-.contact {
-  position: absolute;
-  top: 35%;
-  margin-left: 50px;
-  margin-right: 250px;
-  z-index: 5;
-  font-size: 30px;
-}
-
-#contact-email {
-  cursor: pointer;
+/*----------DESKTOP----------*/
+@media (min-width: 481px) {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-image: linear-gradient(#000000, #383838);
+    background-repeat: none;
+    height: 100vh;
+    max-height: 100%;
+    width: 100vw;
+    max-width: 100%;
+    overflow: hidden;
+    color: white;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
+      sans-serif;
+    font-size: 15px;
+    box-sizing: border-box;
+  }
+
+  @font-face {
+    font-family: wolf bane;
+    src: url(../fonts/wolf.TTF);
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:visited {
+    text-decoration: none;
+  }
+
+  #wizard-icon {
+    position: absolute;
+    z-index: -1;
+    height: 100vh;
+  }
+
+  /*----------Animations----------*/
+
+  .fade-in {
+  }
+
+  .fade-out {
+  }
+
+  .welcome-title-translate {
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+  }
+
+  #show-1.active-show {
+    transition: all 0.3s ease;
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    z-index: 2;
+  }
+
+  #show-2.active-show {
+    transition: all 0.3s ease;
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    z-index: 2;
+  }
+
+  /*------------Welcome----------*/
+
+  .welcome {
+    display: inline-block;
+    vertical-align: middle;
+    height: 500px;
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -250px -250px;
+  }
+
+  #welcome-h1 {
+    font-family: wolf bane, Gloucester MT Extra Condensed, serif;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow: 0px -8px 4px #000000;
+    font-size: 70px;
+  }
+
+  #welcome-h2 {
+    text-align: center;
+    color: #6d6d6d;
+    font-size: 30px;
+  }
+
+  #welcome-enter {
+    text-align: center;
+    color: #6d6d6d;
+    font-size: 30px;
+  }
+
+  #welcome-enter a {
+    cursor: pointer;
+  }
+
+  /*------------Container----------*/
+  .container {
+    display: grid;
+    grid-template-columns: 200px 7fr;
+  }
+
+  /*------------Menu----------*/
+
+  #menu {
+    background-color: rgba(237, 237, 237, 0.1);
+    width: auto;
+    height: 95vh;
+    max-height: 100%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  #wizard-icon-welcome {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    height: 100%;
+  }
+
+  #wizard-icon-2 {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    z-index: -1;
+  }
+
+  #menu-title {
+    font-family: wolf bane, Gloucester MT Extra Condensed, serif;
+    letter-spacing: 2px;
+    text-shadow: 0px -8px 4px #000000;
+    font-size: 30px;
+    margin-top: 0px;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  #menu ul {
+    margin: 0px;
+    padding: 0px;
+    line-height: 40px;
+    font-size: 18px;
+  }
+
+  #menu li {
+    list-style: none;
+    margin: 0px;
+  }
+
+  #menu a {
+    cursor: pointer;
+    color: #6d6d6d;
+  }
+
+  #menu a:hover {
+    transition: all 0.2s ease-out;
+    color: white;
+  }
+
+  #menu hr {
+    border-color: grey;
+  }
+
+  #links {
+    position: absolute;
+    bottom: 20px;
+    left: 35px;
+  }
+
+  #links i {
+    margin: 8px;
+    cursor: pointer;
+    color: white;
+  }
+
+  #links i:hover {
+    transition: all 0.2s ease-out;
+    color: #6d6d6d;
+  }
+
+  /*----------Overlays---------*/
+  .overlays {
+    position: absolute;
+    z-index: 5;
+    left: 200px;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  /*----------Home---------*/
+
+  #home {
+    height: 100vh;
+  }
+
+  #shows {
+    position: relative;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 50px;
+    height: 310px;
+  }
+
+  #shows h1 {
+    font-family: wolf bane, Gloucester MT Extra Condensed, serif;
+    margin: 0px 0px 10px 0px;
+    font-size: 30px;
+  }
+
+  #show-1 {
+    height: 150px;
+    width: 150px;
+    border-radius: 75px;
+    z-index: 1;
+    display: inline-block;
+    position: relative;
+    left: 20px;
+    cursor: pointer;
+  }
+
+  #show-1-info {
+    position: absolute;
+    top: 15%;
+    margin-left: 20px;
+    margin-right: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  #show-1-info a {
+    color: white;
+  }
+
+  #show-2 {
+    height: 150px;
+    width: 150px;
+    border-radius: 75px;
+    z-index: 1;
+    display: inline-block;
+    position: relative;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  #show-2-info {
+    position: absolute;
+    top: 15%;
+    margin-left: 20px;
+    margin-right: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  #show-2-info a {
+    color: white;
+  }
+
+  #podcast {
+    text-align: center;
+    padding-top: 50px;
+  }
+
+  #podcast h1 {
+    font-family: wolf bane, Gloucester MT Extra Condensed, serif;
+    font-size: 30px;
+    margin: 0px 0px 10px 0px;
+  }
+
+  #podcast-mixcloud {
+    background-color: white;
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    z-index: 2;
+    display: inline-block;
+  }
+
+  /*----------Bands---------*/
+  .bands {
+    text-align: center;
+    margin-top: 100px;
+  }
+
+  #cegvera {
+    position: relative;
+  }
+
+  .bands-img {
+    height: 250px;
+    width: 250px;
+  }
+
+  .bands-links i {
+    cursor: pointer;
+    color: white;
+    margin: 5px;
+    position: relative;
+    bottom: 60px;
+  }
+
+  /*----------Venues---------*/
+
+  .venues {
+    position: absolute;
+    padding-top: 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+    overflow: auto;
+  }
+
+  .venues-img {
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+  }
+
+  .venues-links i {
+    cursor: pointer;
+    color: white;
+    margin: 5px;
+    position: relative;
+    bottom: 60px;
+  }
+
+  .venues::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .venues::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+  }
+
+  .venues::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.5);
+  }
+
+  /*----------Posters---------*/
+
+  .posters {
+    text-align: center;
+    margin-top: 20px;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    flex-flow: wrap;
+    justify-content: center;
+    overflow: auto;
+  }
+
+  .posters-img-small {
+    height: 180px;
+    width: 180px;
+    margin: 10px;
+    cursor: pointer;
+  }
+
+  .posters::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .posters::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+  }
+
+  .posters::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.5);
+  }
+
+  /*----------Posters-Lightbox---------*/
+  .posters-lightbox {
+    height: 90vh;
+    overflow: auto;
+    padding: 20px;
+    display: inline-block;
+  }
+
+  .posters-img-large {
+    width: 100%;
+    display: inline-block;
+  }
+
+  .posters-lightbox::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .posters-lightbox::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+  }
+
+  .posters-lightbox::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.5);
+  }
+  /*----------About---------*/
+  .about {
+    position: absolute;
+    top: 20%;
+    margin-left: 20px;
+    margin-right: 250px;
+    z-index: 5;
+  }
+
+  .fb-page {
+    position: absolute;
+    margin-left: 50px;
+  }
+
+  /*----------Contact---------*/
+  .contact {
+    position: absolute;
+    top: 35%;
+    margin-left: 50px;
+    margin-right: 250px;
+    z-index: 5;
+    font-size: 30px;
+  }
+
+  #contact-email {
+    cursor: pointer;
+  }
+}
+
+/*----------MOBILE----------*/
+@media (min-width: 320px) and (max-width: 480px) {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-image: linear-gradient(#000000, #383838);
+    background-repeat: none;
+    height: 100vh;
+    max-height: 100%;
+    width: 100vw;
+    max-width: 100%;
+    overflow: hidden;
+    color: white;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
+      sans-serif;
+    font-size: 12px;
+    box-sizing: border-box;
+  }
+
+  @font-face {
+    font-family: wolf bane;
+    src: url(../fonts/wolf.TTF);
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:visited {
+    text-decoration: none;
+  }
+
+  #wizard-icon {
+    position: absolute;
+    z-index: -1;
+    height: 100vh;
+  }
+
+  /*----------Animations----------*/
+
+  .fade-in {
+  }
+
+  .fade-out {
+  }
+
+  .welcome-title-translate {
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+  }
+
+  #show-1.active-show {
+    transition: all 0.3s ease;
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    z-index: 2;
+  }
+
+  #show-2.active-show {
+    transition: all 0.3s ease;
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    z-index: 2;
+  }
+
+  /*------------Welcome----------*/
+
+  .welcome {
+    display: inline-block;
+    vertical-align: middle;
+    height: 500px;
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -250px -250px;
+  }
+
+  #welcome-h1 {
+    font-family: wolf bane, Gloucester MT Extra Condensed, serif;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow: 0px -8px 4px #000000;
+    font-size: 70px;
+  }
+
+  #welcome-h2 {
+    text-align: center;
+    color: #6d6d6d;
+    font-size: 30px;
+  }
+
+  #welcome-enter {
+    text-align: center;
+    color: #6d6d6d;
+    font-size: 30px;
+  }
+
+  #welcome-enter a {
+    cursor: pointer;
+  }
+
+  /*------------Container----------*/
+  .container {
+    display: block;
+    grid-template-columns: 200px 7fr;
+  }
+
+  /*------------Menu----------*/
+
+  #menu {
+    background-color: rgba(237, 237, 237, 0.1);
+    width: 100%;
+    height: auto;
+    max-height: 100px;
+    text-align: center;
+    padding: 10px;
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  #menu hr {
+    display: none;
+  }
+
+  #wizard-icon-welcome {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    height: 100%;
+  }
+
+  #wizard-icon-2 {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    z-index: -1;
+  }
+
+  #menu-title {
+    display: none;
+  }
+
+  #menu ul {
+    margin: 0px;
+    padding: 0px;
+    line-height: 40px;
+    font-size: 15px;
+  }
+
+  #menu li {
+    list-style: none;
+    margin: 0px 10px;
+    display: inline-block;
+  }
+
+  #menu a {
+    cursor: pointer;
+    color: #6d6d6d;
+  }
+
+  #menu a:hover {
+    transition: all 0.2s ease-out;
+    color: white;
+  }
+
+  #menu hr {
+    border-color: grey;
+  }
+
+  #links {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+  }
+
+  #links i {
+    margin: 8px;
+    cursor: pointer;
+    color: white;
+    display: block;
+  }
+
+  #links i:hover {
+    transition: all 0.2s ease-out;
+    color: #6d6d6d;
+  }
+
+  /*----------Overlays---------*/
+  .overlays {
+    position: absolute;
+    left: 0px;
+    padding-left: 100px;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  /*----------Home---------*/
+
+  #home {
+    height: 100vh;
+  }
+
+  #shows {
+    position: relative;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 30px;
+    height: 310px;
+  }
+
+  #shows h1 {
+    font-family: wolf bane, Gloucester MT Extra Condensed, serif;
+    margin: 0px 0px 10px 0px;
+    font-size: 30px;
+  }
+
+  #show-1 {
+    height: 150px;
+    width: 150px;
+    border-radius: 75px;
+    z-index: 1;
+    display: inline-block;
+    position: relative;
+    left: 20px;
+    cursor: pointer;
+  }
+
+  #show-1-info {
+    position: absolute;
+    top: 15%;
+    margin-left: 20px;
+    margin-right: 150px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  #show-1-info a {
+    color: white;
+  }
+
+  #show-2 {
+    height: 150px;
+    width: 150px;
+    border-radius: 75px;
+    z-index: 1;
+    display: inline-block;
+    position: relative;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  #show-2-info {
+    position: absolute;
+    top: 15%;
+    margin-left: 20px;
+    margin-right: 150px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  #show-2-info a {
+    color: white;
+  }
+
+  #podcast {
+    text-align: center;
+    padding-top: 30px;
+  }
+
+  #podcast h1 {
+    font-family: wolf bane, Gloucester MT Extra Condensed, serif;
+    font-size: 30px;
+    margin: 0px 0px 10px 0px;
+  }
+
+  #podcast-mixcloud {
+    background-color: white;
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    z-index: 2;
+    display: inline-block;
+  }
+
+  /*----------Bands---------*/
+  .bands {
+    text-align: center;
+    margin-top: 100px;
+  }
+
+  #cegvera {
+    position: relative;
+  }
+
+  .bands-img {
+    height: 250px;
+    width: 250px;
+  }
+
+  .bands-links i {
+    cursor: pointer;
+    color: white;
+    margin: 5px;
+    position: relative;
+    bottom: 60px;
+  }
+
+  /*----------Venues---------*/
+
+  .venues {
+    position: absolute;
+    padding-top: 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100vh;
+    overflow: auto;
+  }
+
+  .venues-img {
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+  }
+
+  .venues-links i {
+    cursor: pointer;
+    color: white;
+    margin: 5px;
+    position: relative;
+    bottom: 60px;
+  }
+
+  .venues::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .venues::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+  }
+
+  .venues::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.5);
+  }
+
+  /*----------Posters---------*/
+
+  .posters {
+    text-align: center;
+    margin-top: 20px;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    flex-flow: wrap;
+    justify-content: center;
+    overflow: auto;
+  }
+
+  .posters-img-small {
+    height: 180px;
+    width: 180px;
+    margin: 10px;
+    cursor: pointer;
+  }
+
+  .posters::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .posters::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+  }
+
+  .posters::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.5);
+  }
+
+  /*----------Posters-Lightbox---------*/
+  .posters-lightbox {
+    height: 90vh;
+    overflow: auto;
+    padding: 20px;
+    display: inline-block;
+  }
+
+  .posters-img-large {
+    width: 100%;
+    display: inline-block;
+  }
+
+  .posters-lightbox::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .posters-lightbox::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+  }
+
+  .posters-lightbox::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.5);
+  }
+  /*----------About---------*/
+  .about {
+    position: absolute;
+    top: 20%;
+    margin-left: 20px;
+    margin-right: 250px;
+    z-index: 5;
+  }
+
+  .fb-page {
+    position: absolute;
+    margin-left: 50px;
+  }
+
+  /*----------Contact---------*/
+  .contact {
+    position: absolute;
+    top: 35%;
+    margin-left: 50px;
+    z-index: 5;
+    font-size: 20px;
+  }
+
+  #contact-email {
+    cursor: pointer;
+  }
 }
